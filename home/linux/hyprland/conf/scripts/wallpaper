@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+WALLPAPERS_DIR="$HOME/wallpapers"
+LAST_WALLPAPER_FILE="$HOME/.cache/last_wallpaper"
+
+random_wallpaper() {
+    LAST_WALLPAPER_FILE="$HOME/.cache/last_wallpaper"
+    last_wallpaper=$(cat "${LAST_WALLPAPER_FILE}")
+    find_command="find ${WALLPAPERS_DIR} -type f -not -path ${last_wallpaper}"
+    wallpaper_file=$(eval "${find_command}" | shuf -n1)
+    echo "${wallpaper_file}" > "${LAST_WALLPAPER_FILE}"
+    swww img "${last_wallpaper}"  --transition-step 10 --transition-fps 120  --transition-type center --transition-duration 2  
+}
+
+set_wallpaper() {
+    last_wallpaper=$(realpath $1)
+    swww img "${last_wallpaper}"  --transition-step 10 --transition-fps 120  --transition-type center --transition-duration 2
+    echo "${last_wallpaper}" > "${LAST_WALLPAPER_FILE}"
+}
+
+case "$1" in
+    --random)
+        random_wallpaper
+        ;;
+    --set)
+        set_wallpaper "$2"
+        ;;
+    *)
+        echo "Usage: $0 {random|set <file_path>}"
+        exit 1
+esac
+

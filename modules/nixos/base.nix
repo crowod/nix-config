@@ -1,0 +1,160 @@
+{ lib
+, pkgs
+, ...
+}: {
+
+
+  nixpkgs.config.allowUnfree = lib.mkForce true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-19.1.9"
+    "openssh-with-hpn-9.2p1"
+    "openssl-1.1.1v"
+    "python-2.7.18.6"
+  ];
+
+  environment.shells = with pkgs; [
+    bash
+    fish
+  ];
+
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
+
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    dates = lib.mkDefault "weekly";
+    options = lib.mkDefault "--delete-older-than 1w";
+  };
+
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # Set your time zone.
+  time.timeZone = "Asia/Shanghai";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "zh_CN.UTF-8";
+    LC_IDENTIFICATION = "zh_CN.UTF-8";
+    LC_MEASUREMENT = "zh_CN.UTF-8";
+    LC_MONETARY = "zh_CN.UTF-8";
+    LC_NAME = "zh_CN.UTF-8";
+    LC_NUMERIC = "zh_CN.UTF-8";
+    LC_PAPER = "zh_CN.UTF-8";
+    LC_TELEPHONE = "zh_CN.UTF-8";
+    LC_TIME = "zh_CN.UTF-8";
+  };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    settings = {
+      X11Forwarding = true;
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+    openFirewall = true;
+  };
+
+  services.mpd = {
+    enable = true;
+    extraConfig = ''
+      audio_output {
+              type            "pipewire"
+              name            "PipeWire Sound Server"
+      }'';
+    startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
+
+  # security with polkit
+  services.power-profiles-daemon = {
+    enable = true;
+  };
+  security.polkit.enable = true;
+  # security with gnome-kering
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+  environment.variables = {
+    NIXPKGS_ALLOW_INSECURE = "1";
+  };
+
+  environment.systemPackages = with pkgs; [
+    neovim
+    wget
+    curl
+    git
+    clash-verge
+    nixpkgs-fmt
+    keyd
+    
+
+    # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
+    (
+      let
+        base = pkgs.appimageTools.defaultFhsEnvArgs;
+      in
+      pkgs.buildFHSUserEnv (base
+        // {
+        name = "fhs";
+        targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ pkgs.pkg-config ];
+        profile = "export FHS=1";
+        runScript = "bash";
+        extraOutputsToInstall = [ "dev" ];
+      })
+    )
+  ];
+
+  virtualisation.docker = {
+    enable = true;
+    # start dockerd on boot.
+    # This is required for containers which are created with the `--restart=always` flag to work.
+    enableOnBoot = true;
+  };
+
+  environment.variables.EDITOR = "nvim";
+
+  # fonts related
+  fonts = {
+    enableDefaultFonts = false;
+    fontDir.enable = true;
+
+    fonts = with pkgs; [
+      material-design-icons
+      font-awesome
+
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+
+      source-sans
+      source-serif
+      source-han-sans
+      source-han-serif
+
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+        ];
+      })
+    ];
+
+    fontconfig.defaultFonts = {
+      serif = [ "Noto Serif" "Noto Color Emoji" ];
+      sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+      monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
+
+  environment.shellAliases = {
+    su = "su -m";
+  };
+
+}

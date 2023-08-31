@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ ! $(pidof wlogout) ]]; then
+	wlogout \
+		--column-spacing 20 \
+		--row-spacing 20 \
+		--margin-top 200 \
+		--margin-bottom 200 \
+		--margin-left 150 \
+		--margin-right 150
+else
+	pkill wlogout
+fi

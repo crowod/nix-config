@@ -1,0 +1,163 @@
+{
+  description = "NixOS configuration of crowod";
+
+  outputs =
+    inputs @ { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , ...
+    }:
+    let
+      username = "crowod";
+      email = "xiangcz929@gmail.com";
+      x64_system = "x86_64-linux";
+
+      nixosSystem = import ./lib/nixosSystem.nix;
+
+      nia_modules = {
+        nixos-modules = [
+          ./hosts/nia
+          ./modules/nixos/hyprland.nix
+        ];
+        home-module = import ./home/linux/desktop.nix;
+      };
+
+      x64_specialArgs =
+        {
+          inherit username email;
+          pkgs-unstable = import nixpkgs-unstable {
+            system = x64_system;
+            config.allowUnfree = true;
+          };
+        } // inputs;
+    in
+    {
+      nixosConfigurations =
+        let
+          base_args = {
+            inherit home-manager;
+            nixpkgs = nixpkgs; # or nixpkgs-unstable
+            system = x64_system;
+            specialArgs = x64_specialArgs;
+          };
+        in
+        {
+          nia = nixosSystem (nia_modules // base_args);
+        };
+    };
+
+
+  inputs = {
+    # There are many ways to reference flake inputs. The most widely used is github:owner/name/reference,
+    # which represents the GitHub repository URL + branch/commit-id/tag.
+
+    # Official NixOS package source, using nixos's stable branch by default
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    flake-utils.url = "github:numtide/flake-utils";
+
+    nur.url = "github:nix-community/NUR";
+
+    # The Nix User Repository (NUR) is community-driven meta repository for Nix packages. 
+    nur-xddxdd = {
+      url = "github:xddxdd/nur-packages";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur-crowod = {
+      url = "github:crowod/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # home-manager, used for managing user configuration
+    home-manager = {
+      url = "github:nix-community/home-manager/release-23.05";
+      # The `follows` keyword in inputs is used for inheritance.
+      # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
+      # to avoid problems caused by different versions of nixpkgs dependencies.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # modern window compositor
+    hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
+    # community wayland nixpkgs
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # a wayland launcher
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # age-encrypted secrets for NixOS
+    agenix.url = "github:ryantm/agenix/0d8c5325fc81daf00532e3e26c6752f7bcde1143";
+
+    # Nix language server
+    nil.url = "github:oxalica/nil";
+    
+    # kitty grab
+    kitty-grab = {
+      url = "github:yurikhan/kitty_grab";      
+      flake = false;
+    };
+
+    # color schema
+    catppuccin-fcitx5 = {
+      url = "github:catppuccin/fcitx5";
+      flake = false;
+    };
+    catppuccin-kitty = {
+      url = "github:catppuccin/kitty";
+      flake = false;
+    };
+    catppuccin-hyprland = {
+      url = "github:catppuccin/hyprland";
+      flake = false;
+    };
+    catppuccin-btop = {
+      url = "github:catppuccin/btop";
+      flake = false;
+    };
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+  };
+
+
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://cache.nixos.org"
+      "https://xddxdd.cachix.org"
+      "https://crowod.cachix.org"
+      "https://anyrun.cachix.org"
+    ];
+
+    # nix community's cache server
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+
+    ];
+    extra-trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "xddxdd.cachix.org-1:ay1HJyNDYmlSwj5NXQG065C8LfoqqKaTNCyzeixGjf8="
+      "crowod.cachix.org-1:JXeKWrnjh01P7veGCKotIcdU3cjmZocly3ZQPJTQH98="
+      "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
+    ];
+  };
+
+
+}
