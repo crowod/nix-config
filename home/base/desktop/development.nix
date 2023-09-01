@@ -39,6 +39,11 @@
     enable = true;
     package = pkgs-unstable.vscode.fhs;
   };
+  
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable =  true;
+  };
 
 
   home.file."jdks/openjdk8".source = pkgs.jdk8;
