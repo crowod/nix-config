@@ -5,7 +5,7 @@
     "keybind" : "l"
 }
 {
-    "label" : "hibernate",
+    "label" : "hibernate"
     "action" : "systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
@@ -24,7 +24,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "sleep 0.3; systemctl suspend",
+    "action" : "sleep 0.5; systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }

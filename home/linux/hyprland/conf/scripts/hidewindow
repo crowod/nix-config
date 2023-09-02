@@ -1,0 +1,41 @@
+#! /usr/bin/env bash
+
+
+hide_windows() {
+    current_id=$(hyprctl activeworkspace -j | jq .id)
+    echo $current_id
+    addresses=$(hyprctl clients -j | jq -r "map(select(.workspace.id==${current_id}))[].address") 
+    echo $addresses
+    for obj in $addresses; do
+        hyprctl setprop address:${obj} alpha 0 lock && hyprctl setprop address:${obj} alphainactive 0 lock
+    done
+}
+
+unhide_windows() {
+    current_id=$(hyprctl activeworkspace -j | jq .id)
+    echo $current_id
+    addresses=$(hyprctl clients -j | jq -r "map(select(.workspace.id==${current_id}))[].address") 
+    echo $addresses
+    for obj in $addresses; do
+        hyprctl setprop address:${obj} alpha 1 && hyprctl setprop address:${obj} alphainactive 1 
+    done
+}
+
+case "$1" in
+    --hide)
+        hide_windows
+        ;;
+    --unhide)
+        unhide_windows
+        ;;
+    --help)
+        echo "Usage: $0 {--hide|--unhide}"
+        echo "--hide: Hides all windows on the current workspace."
+        echo "--unhide: Unhides all windows on the current workspace."
+        ;;
+    *)
+        echo "Usage: $0 {--hide|--unhide}"
+        echo "--hide: Hides all windows on the current workspace."
+        echo "--unhide: Unhides all windows on the current workspace."
+        ;;
+esac
