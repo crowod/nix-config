@@ -1,4 +1,5 @@
 { pkgs
+, nur-crowod
 , ...
 }: {
 
@@ -14,6 +15,8 @@
 
     imv
     cliphist
+
+    nur-crowod.packages.${pkgs.system}.pot-translation
   ];
 
 }
