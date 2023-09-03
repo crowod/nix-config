@@ -1,0 +1,30 @@
+#! /usr/bin/env bash
+
+URL="http://127.0.0.1:60828"
+
+input_translate() {
+    curl "$URL/input_translate"
+}
+
+selection_translate() {
+    curl "$URL/selection_translate"
+}
+
+case "$1" in
+    --input)
+        input_translate
+        ;;
+    --select)
+        selection_translate
+        ;;
+    --help)
+        echo "Usage: $0 {--input|--select}"
+        echo "--input: Translate input."
+        echo "--select: Translate selection."
+        ;;
+    *)
+        echo "Usage: $0 {--input|--select}"
+        echo "--input: Translate input."
+        echo "--select: Translate selection."
+        ;;
+esac
