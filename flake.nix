@@ -29,6 +29,7 @@
           pkgs-unstable = import nixpkgs-unstable {
             system = x64_system;
             config.allowUnfree = true;
+            overlays = (import ./overlays);
           };
         } // inputs;
     in
@@ -95,10 +96,10 @@
 
     # Nix language server
     nil.url = "github:oxalica/nil";
-    
+
     # kitty grab
     kitty-grab = {
-      url = "github:yurikhan/kitty_grab";      
+      url = "github:yurikhan/kitty_grab";
       flake = false;
     };
 

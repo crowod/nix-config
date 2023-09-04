@@ -18,17 +18,6 @@ nixpkgs.lib.nixosSystem {
       specialArgs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
     ]
     ++ [
-      {
-        nixpkgs.overlays = [
-          specialArgs.nur.overlay
-          specialArgs.nil.overlays.default
-          (self: super: {
-            waybar = super.waybar.overrideAttrs (oldAttrs: {
-              mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-            });
-          })
-        ];
-      }
       home-manager.nixosModules.home-manager
       {
         home-manager = {
@@ -37,6 +26,10 @@ nixpkgs.lib.nixosSystem {
           extraSpecialArgs = specialArgs;
           users."${username}" = home-module;
         };
+        nixpkgs.overlays = [
+          specialArgs.nur.overlay
+          specialArgs.nil.overlays.default
+        ] ++ (import ../overlays);
       }
     ];
 }

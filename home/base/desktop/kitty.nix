@@ -21,10 +21,10 @@
         background_opacity = "0.7";
         scrollback_lines = 10000;
         enable_audio_bell = false;
-        tab_bar_edge = "top"; 
+        tab_bar_edge = "top";
       };
   };
-  
+
   home.file.".config/kitty/kitty_grab".source = "${kitty-grab}";
   home.file.".config/kitty/grab.conf".source = "${kitty-grab}/grab-vim.conf.example";
 }

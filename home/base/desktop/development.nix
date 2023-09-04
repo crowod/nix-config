@@ -24,7 +24,7 @@
 
     clang
     rustup
-    
+
     lua
     lua-language-server
 
@@ -39,10 +39,10 @@
     enable = true;
     package = pkgs-unstable.vscode.fhs;
   };
-  
+
   programs.direnv = {
     enable = true;
-    nix-direnv.enable =  true;
+    nix-direnv.enable = true;
   };
 
 

@@ -59,7 +59,7 @@
     wlogout # logout menu
     wl-clipboard # copying and pasting
     hyprpicker # color picker
-    
+
     swww # the wallpaper
 
     wf-recorder # creen recording

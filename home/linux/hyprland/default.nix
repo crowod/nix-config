@@ -43,7 +43,7 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
-    GDK_BACKEND= "wayland,x11";
+    GDK_BACKEND = "wayland,x11";
   };
 }
 
