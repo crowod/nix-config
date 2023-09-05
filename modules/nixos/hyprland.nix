@@ -66,7 +66,7 @@
     grim # taking screenshots
     slurp # select reigon for grim 
 
-    swappy # screenshot
+    flameshot # screen shot
 
     mako # the notification daemon, the same as dunst
 
@@ -78,11 +78,4 @@
   ];
 
   security.pam.services.swaylock = { };
-
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx5";
-    QT_IM_MODULE = "fcitx5";
-    SDL_IM_MODULE = "fcitx5";
-    XMODIFIERS = "@im=fcitx5";
-  };
 }
