@@ -27,6 +27,8 @@
 
     lua
     lua-language-server
+    
+    ruby
 
     (python311.withPackages (ps:
       with ps; [
