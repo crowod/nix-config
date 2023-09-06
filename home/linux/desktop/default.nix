@@ -12,7 +12,7 @@
     qq
     wechat-uos
     telegram-desktop
-
+    
     imv
     cliphist
 
