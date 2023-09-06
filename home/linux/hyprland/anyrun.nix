@@ -1,17 +1,20 @@
 { pkgs
 , anyrun
+, username
 , ...
 }:
 {
   imports = [
     anyrun.homeManagerModules.default
   ];
+  
+  home.file.".config/anyrun/lib/libapplications.so".source = ./conf/anyrun/libapplications.so;
 
   programs.anyrun = {
     enable = true;
     config = {
       plugins = with anyrun.packages.${pkgs.system}; [
-        applications
+        "/home/${username}/.config/anyrun/lib/libapplications.so"
         randr
         rink
         shell
@@ -23,6 +26,18 @@
       y.absolute = 15;
       hidePluginInfo = true;
       closeOnClick = false;
+    };
+    
+    extraConfigFiles = {
+      "applications.ron".text = ''
+          Config(
+            desktop_actions: true,
+            max_entries: 5, 
+            terminal: Some("kitty"),
+            shell: Some("fish"),
+        )
+      '';
+
     };
 
     extraCss = ''
