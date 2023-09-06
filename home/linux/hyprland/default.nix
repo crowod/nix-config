@@ -1,4 +1,6 @@
-{ catppuccin-hyprland
+{ 
+  lib
+, catppuccin-hyprland
 , ...
 }:
 {
@@ -44,6 +46,11 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     GDK_BACKEND = "wayland,x11";
+
+    GTK_IM_MODULE = lib.mkForce "fcitx5";
+    QT_IM_MODULE = lib.mkForce "fcitx5";
+    SDL_IM_MODULE = lib.mkForce "fcitx5";
+    XMODIFIERS = lib.mkForce "@im=fcitx5";
   };
 }
 
