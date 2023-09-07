@@ -102,6 +102,12 @@
       url = "github:yurikhan/kitty_grab";
       flake = false;
     };
+    
+    # wallpapers
+    wallpapers = {
+      url = "github:crowod/wallpapers";
+      flake = false;
+    };
 
     # color schema
     catppuccin-fcitx5 = {

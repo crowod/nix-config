@@ -740,7 +740,8 @@
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
         "nur-crowod": "nur-crowod",
-        "nur-xddxdd": "nur-xddxdd"
+        "nur-xddxdd": "nur-xddxdd",
+        "wallpapers": "wallpapers"
       }
     },
     "rust-overlay": {
@@ -832,6 +833,22 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694088883,
+        "narHash": "sha256-L9xs1z1jnaG/7h/3HiAJQ2HpxJGXopeZL04pBhzyciM=",
+        "owner": "crowod",
+        "repo": "wallpapers",
+        "rev": "fd4d887d3c3913deff0b3ddbd38843b72738883c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "crowod",
+        "repo": "wallpapers",
         "type": "github"
       }
     },

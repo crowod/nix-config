@@ -1,16 +1,20 @@
 #! /usr/bin/env bash
 
-WALLPAPERS_DIR="$HOME/wallpapers"
+WALLPAPERS_DIR="$HOME/wallpapers/"
 RECENT_WALLPAPERS_FILE="$HOME/.cache/recent_wallpapers"
+
+extensions=("jpg" "png")
+extensions_string=$(printf -- "-name '*.%s' -o " "${extensions[@]}")
+extensions_string=${extensions_string::-4} # remove the last " -o "
 
 
 random_wallpaper() {
     recent_wallpapers=$(tail -n 3 "${RECENT_WALLPAPERS_FILE}")
     if [ -z "$recent_wallpapers" ]; then
-        find_command="find ${WALLPAPERS_DIR} -type f"
+        find_command="find ${WALLPAPERS_DIR} -type f \( ${extensions_string} \)"
     else
-        find_command="find ${WALLPAPERS_DIR} -type f $(printf "! -wholename %s " $recent_wallpapers)"
-	fi
+        find_command="find ${WALLPAPERS_DIR} -type f \( ${extensions_string} \) $(printf "! -wholename %s " $recent_wallpapers)"
+    fi
     wallpaper_file=$(eval "${find_command}" | shuf -n1)
     echo "$(tail -n 2 "${RECENT_WALLPAPERS_FILE}")" > "${RECENT_WALLPAPERS_FILE}"
     echo "${wallpaper_file}" >> "${RECENT_WALLPAPERS_FILE}"

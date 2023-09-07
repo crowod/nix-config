@@ -1,5 +1,6 @@
 { 
   catppuccin-hyprland
+, wallpapers
 , ...
 }:
 {
@@ -30,6 +31,8 @@
 
   # swappy
   home.file.".config/swappy/config".source = ./conf/swappy/config;
+  
+  home.file."wallpapers".source = "${wallpapers}";
 
   fonts.fontconfig.enable = true;
 
