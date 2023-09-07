@@ -20,6 +20,7 @@
     # other
     glow
     neofetch
+    fswatch
 
     nushell
   ];
