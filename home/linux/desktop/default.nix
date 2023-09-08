@@ -13,6 +13,7 @@
     wechat-uos
     telegram-desktop
     
+    baidupcs-go
     imv
     cliphist
 
