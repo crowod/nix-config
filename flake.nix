@@ -60,6 +60,10 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     nur.url = "github:nix-community/NUR";
+    
+    # Run unpatched binaries on Nix/NixOS
+    nix-alien.url = "github:thiagokokada/nix-alien";
+
 
     # The Nix User Repository (NUR) is community-driven meta repository for Nix packages. 
     nur-xddxdd = {

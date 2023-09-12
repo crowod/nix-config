@@ -9,5 +9,6 @@
     ./starship.nix
     ./git.nix
     ./bat.nix
+    ./nix-alien.nix
   ];
 }
