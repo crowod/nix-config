@@ -18,6 +18,7 @@
     cliphist
 
     nur-crowod.packages.${pkgs.system}.pot-translation
+    nur-crowod.packages.${pkgs.system}.aliyunpan
   ];
 
 }

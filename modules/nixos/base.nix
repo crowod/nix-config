@@ -92,6 +92,7 @@
     clash-verge
     nixpkgs-fmt
     keyd
+    patchelf
 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!
