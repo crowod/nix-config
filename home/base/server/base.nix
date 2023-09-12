@@ -21,6 +21,7 @@
     glow
     neofetch
     fswatch
+    distrobox
 
     nushell
   ];
