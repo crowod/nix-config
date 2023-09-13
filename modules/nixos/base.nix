@@ -93,6 +93,7 @@
     nixpkgs-fmt
     keyd
     patchelf
+    nix-output-monitor
 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!

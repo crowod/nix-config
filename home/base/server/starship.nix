@@ -1,10 +1,8 @@
 { catppuccin-starship, ... }:
 {
+  home.file.".config/starship.toml".text = (builtins.readFile ./conf/starship/starship.toml) + (builtins.readFile "${catppuccin-starship}/palettes/mocha.toml");
+
   programs.starship = {
     enable = true;
-
-    settings = {
-      palette = "catppuccin_mocha";
-    } // builtins.fromTOML (builtins.readFile "${catppuccin-starship}/palettes/mocha.toml");
   };
 }

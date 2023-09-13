@@ -1,0 +1,6 @@
+palette = "catppuccin_mocha"
+
+[custom.fhs]
+format = 'via [\(fhs\)](bold blue) '
+style = 'bold blue'	
+when = ''' test "$FHS" = 1 '''

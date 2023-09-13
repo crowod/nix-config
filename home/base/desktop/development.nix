@@ -28,6 +28,7 @@
     lua
     lua-language-server
     
+    devbox
     ruby
 
     (python311.withPackages (ps:
