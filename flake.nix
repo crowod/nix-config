@@ -22,6 +22,13 @@
         ];
         home-module = import ./home/linux/desktop.nix;
       };
+      mio_modules = {
+        nixos-modules = [
+          ./hosts/mio
+          ./modules/nixos/hyprland.nix
+        ];
+        home-module = import ./home/linux/desktop.nix;
+      };
 
       x64_specialArgs =
         {
@@ -45,6 +52,7 @@
         in
         {
           nia = nixosSystem (nia_modules // base_args);
+          mio = nixosSystem (mio_modules // base_args);
         };
     };
 

@@ -11,11 +11,17 @@ M.catppuccin = function()
 end
 
 require("catppuccin").setup {
+    flavour = "mocha",
+    transparent_background = true,
+    term_colors = false,
     custom_highlights = function(colors)
         return {
-            StatusLine = {bg = colors.none, fg = colors.none},
+            StatusLine = { bg = colors.none, fg = colors.none },
         }
-    end
+    end,
+    integrations = {
+        hop = true
+    }
 }
 
 M.catppuccin()
