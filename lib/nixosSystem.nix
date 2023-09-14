@@ -4,18 +4,29 @@
 , specialArgs
 , nixos-modules
 , home-module
+, module_name
 , ...
 }:
 let
   username = specialArgs.username;
+  args = specialArgs // { 
+    module_name = module_name; 
+    pkgs-unstable = import specialArgs.nixpkgs-unstable {
+      system = specialArgs.x64_system;
+      config.allowUnfree = true;
+      overlays = (import ../overlays {module_name = module_name;});
+    };
+
+  };
 in
 nixpkgs.lib.nixosSystem {
-  inherit system specialArgs;
+  inherit system;
+  specialArgs = args;
   modules =
     nixos-modules
     ++ [
-      specialArgs.nur-xddxdd.nixosModules.setupOverlay
-      specialArgs.nur-xddxdd.nixosModules.qemu-user-static-binfmt
+      args.nur-xddxdd.nixosModules.setupOverlay
+      args.nur-xddxdd.nixosModules.qemu-user-static-binfmt
     ]
     ++ [
       home-manager.nixosModules.home-manager
@@ -23,13 +34,13 @@ nixpkgs.lib.nixosSystem {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = specialArgs;
+          extraSpecialArgs = args;
           users."${username}" = home-module;
         };
         nixpkgs.overlays = [
-          specialArgs.nur.overlay
-          specialArgs.nil.overlays.default
-        ] ++ (import ../overlays);
+          args.nur.overlay
+          args.nil.overlays.default
+        ] ++ (import ../overlays {module_name = module_name;});
       }
     ];
 }

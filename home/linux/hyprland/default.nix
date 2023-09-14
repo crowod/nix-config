@@ -4,16 +4,17 @@
 , ...
 }:
 {
+
   imports = [
     ./anyrun.nix
     ./apps.nix
     ./wofi.nix
+    ./conf.nix
   ];
 
   # hyprland config
   home.file.".config/hypr/themes".source = "${catppuccin-hyprland}/themes";
-  home.file.".config/hypr/hyprland.conf".source = ./conf/hyprland.conf;
-
+  
   # mako config
   home.file.".config/mako/config".source = ./conf/mako/config;
 

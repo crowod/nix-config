@@ -1,6 +1,8 @@
+{ ... }@args:
+
 [
   (import ./obsidian)
-  (import ./jetbrains)
+  (import ./jetbrains args)
   (import ./vscode)
   (import ./waybar)
   (import ./flameshot)

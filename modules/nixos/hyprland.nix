@@ -7,6 +7,7 @@
 
       xwayland = {
         enable = true;
+        hidpi = true;
       };
     };
     light.enable = true;

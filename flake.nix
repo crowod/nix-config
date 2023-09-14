@@ -21,6 +21,7 @@
           ./modules/nixos/hyprland.nix
         ];
         home-module = import ./home/linux/desktop.nix;
+        module_name = "nia";
       };
       mio_modules = {
         nixos-modules = [
@@ -28,16 +29,12 @@
           ./modules/nixos/hyprland.nix
         ];
         home-module = import ./home/linux/desktop.nix;
+        module_name = "mio";
       };
 
       x64_specialArgs =
         {
-          inherit username email;
-          pkgs-unstable = import nixpkgs-unstable {
-            system = x64_system;
-            config.allowUnfree = true;
-            overlays = (import ./overlays);
-          };
+          inherit username email x64_system;
         } // inputs;
     in
     {
