@@ -7,6 +7,7 @@
     maven
     pkgs-unstable.nil
     gnumake
+    cmake
     conda
 
     clang
