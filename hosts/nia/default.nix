@@ -19,6 +19,17 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = lib.mkDefault 10;
+  boot.supportedFilesystems = [
+    "ext4"
+    "btrfs"
+    "xfs"
+    #"zfs"
+    "ntfs"
+    "fat"
+    "vfat"
+    "exfat"
+    "cifs" # mount windows share
+  ];
 
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModprobeConfig = "options kvm_amd nested=1";
