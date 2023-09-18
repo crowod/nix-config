@@ -54,7 +54,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    waybar # the status bar
+    pkgs-unstable.waybar # the status bar
     swayidle # the idle timeout
     swaylock-effects # lock screen
     wlogout # logout menu

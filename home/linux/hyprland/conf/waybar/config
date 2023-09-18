@@ -6,7 +6,7 @@
         "temperature",
     ],
     "modules-center": [
-        "wlr/workspaces"
+        "hyprland/workspaces"
     ],
     "modules-right": [
         "mpd",
@@ -19,7 +19,7 @@
         "custom/powermenu",
         "tray"
     ],
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "on-click": "activate",
     },
     "clock": {
