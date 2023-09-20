@@ -31,11 +31,28 @@
         home-module = import ./home/linux/desktop.nix;
         module_name = "mio";
       };
-
+      
       x64_specialArgs =
         {
           inherit username email x64_system;
-        } // inputs;
+        } // inputs // {
+          nur-xddxdd = import inputs.nur-xddxdd {
+            pkgs = import nixpkgs {
+              localSystem = {
+                system = x64_system;
+              };
+              config = {
+                permittedInsecurePackages = [ 
+                  "electron-19.1.9"
+                  "openssh-with-hpn-9.2p1"
+                  "openssl-1.1.1v"
+                  "python-2.7.18.6"
+                ];
+                allowUnfree = true;
+              };
+            };
+          };
+        };
     in
     {
       nixosConfigurations =

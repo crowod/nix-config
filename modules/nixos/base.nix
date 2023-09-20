@@ -5,12 +5,6 @@
 
 
   nixpkgs.config.allowUnfree = lib.mkForce true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-19.1.9"
-    "openssh-with-hpn-9.2p1"
-    "openssl-1.1.1v"
-    "python-2.7.18.6"
-  ];
 
   environment.shells = with pkgs; [
     bash

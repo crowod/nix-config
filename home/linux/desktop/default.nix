@@ -19,7 +19,10 @@
     yesplaymusic
     motrix
 
-    nur-xddxdd.packages.${pkgs.system}.baidupcs-go
+    # nur-xddxdd.packages.${pkgs.system}.baidupcs-go
+    # nur-xddxdd.packages.${pkgs.system}.wechat-uos
+    nur-xddxdd.wechat-uos
+    nur-xddxdd.baidupcs-go
 
     nur-crowod.packages.${pkgs.system}.pot-translation
     nur-crowod.packages.${pkgs.system}.aliyunpan
