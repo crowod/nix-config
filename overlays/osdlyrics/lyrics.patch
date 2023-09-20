@@ -1,0 +1,86 @@
+diff --git a/lyricsources/netease_tr/netease_tr.py b/lyricsources/netease_tr/netease_tr.py
+index e9c7c8d..208df1b 100644
+--- a/lyricsources/netease_tr/netease_tr.py
++++ b/lyricsources/netease_tr/netease_tr.py
+@@ -92,7 +92,7 @@ class NeteaseTranslatedSource(BaseLyricSourcePlugin):
+             raise ValueError('This item has no lyrics.')
+ 
+         if self.attempt_use_translation:
+-            lyric = parsed['tlyric']['lyric']
++            lyric = parsed['lrc']['lyric'] + parsed['tlyric']['lyric']
+             if not lyric:
+                 lyric = parsed['lrc']['lyric']
+         else:
+diff --git a/python/lrc.py b/python/lrc.py
+index c13de20..1c7a580 100644
+--- a/python/lrc.py
++++ b/python/lrc.py
+@@ -141,7 +141,7 @@ def parse_lrc(content):
+     """
+     tokens = tokenize(content)
+     attrs = {}
+-    lyrics = []
++    lyrics_records = {}
+     timetags = []
+     for token in tokens:
+         if isinstance(token, AttrToken):
+@@ -150,9 +150,12 @@ def parse_lrc(content):
+             timetags.append(token.time)
+         else:
+             for timestamp in timetags:
+-                lyrics.append({'timestamp': dbus.types.Int64(timestamp),
+-                               'text': token.text})
++                if dbus.types.Int64(timestamp) not in lyrics_records:
++                    lyrics_records[dbus.types.Int64(timestamp)] = {'timestamp': dbus.types.Int64(timestamp), 'text': token.text}
++                else:
++                    lyrics_records[dbus.types.Int64(timestamp)]["text"] = lyrics_records[dbus.types.Int64(timestamp)]["text"] + "\n" + token.text
+             timetags = []
++    lyrics = list(lyrics_records.values())
+     lyrics.sort(key=lambda a: a['timestamp'])
+     i = 0
+     for lyric in lyrics:
+diff --git a/src/ol_osd_module.c b/src/ol_osd_module.c
+index d751868..c6a9a3f 100644
+--- a/src/ol_osd_module.c
++++ b/src/ol_osd_module.c
+@@ -432,6 +432,11 @@ ol_osd_module_update_next_lyric (OlOsdModule *osd, OlLrcIter *iter)
+     id = -1;
+     text = "";
+   }
++  if (strchr(text, '\n') || osd->line_count == 1)
++  {
++    osd->lrc_next_id = -1;
++    return;
++  }
+   if (osd->lrc_next_id != id)
+   {
+     int next_line = 1 - osd->current_line;
+@@ -661,6 +666,7 @@ ol_osd_module_set_played_time (struct OlDisplayModule *module,
+     if (_advance_to_nonempty_lyric (iter))
+     {
+       gint id = ol_lrc_iter_get_id (iter);
++      ol_debugf("  lyric id: %d\n", id);
+       if (id != priv->lrc_id)
+       {
+         if (id == priv->lrc_next_id)
+diff --git a/src/ol_scroll_window.c b/src/ol_scroll_window.c
+index c2fc286..fbdfd6f 100644
+--- a/src/ol_scroll_window.c
++++ b/src/ol_scroll_window.c
+@@ -536,6 +536,7 @@ _paint_lyrics (OlScrollWindow *scroll, cairo_t *cr)
+       pango_layout_set_text (layout,
+                              g_ptr_array_index (scroll->whole_lyrics, i),
+                              -1);
++
+       cairo_save (cr);
+       double ratio = _get_active_color_ratio (scroll, i);
+       double alpha = 1.0;
+@@ -552,7 +553,7 @@ _paint_lyrics (OlScrollWindow *scroll, cairo_t *cr)
+                              priv->active_color.b * ratio +
+                              priv->inactive_color.b * (1 - ratio),
+                              alpha);
+-      cairo_move_to (cr, priv->padding_x, ypos);
++      cairo_move_to (cr, priv->padding_x, ypos * 1.5);
+       pango_cairo_update_layout (cr, layout);
+       pango_cairo_show_layout (cr, layout);
+       cairo_restore (cr);

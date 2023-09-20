@@ -1,5 +1,6 @@
 { pkgs
 , nur-crowod
+, nur-xddxdd
 , ...
 }: {
 
@@ -10,15 +11,15 @@
 
   home.packages = with pkgs; [
     qq
-    wechat-uos
     telegram-desktop
     
-    baidupcs-go
     imv
     cliphist
     osdlyrics
     yesplaymusic
     motrix
+
+    nur-xddxdd.packages.${pkgs.system}.baidupcs-go
 
     nur-crowod.packages.${pkgs.system}.pot-translation
     nur-crowod.packages.${pkgs.system}.aliyunpan

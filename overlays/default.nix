@@ -6,4 +6,5 @@
   (import ./vscode)
   (import ./waybar)
   (import ./flameshot)
+  (import ./osdlyrics)
 ]

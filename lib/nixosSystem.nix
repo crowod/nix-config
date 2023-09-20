@@ -25,10 +25,6 @@ nixpkgs.lib.nixosSystem {
   modules =
     nixos-modules
     ++ [
-      args.nur-xddxdd.nixosModules.setupOverlay
-      args.nur-xddxdd.nixosModules.qemu-user-static-binfmt
-    ]
-    ++ [
       home-manager.nixosModules.home-manager
       {
         home-manager = {
