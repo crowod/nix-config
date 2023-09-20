@@ -23,6 +23,7 @@
 
     nur-crowod.packages.${pkgs.system}.pot-translation
     nur-crowod.packages.${pkgs.system}.aliyunpan
+    nur-crowod.packages.${pkgs.system}.lx-music-desktop
   ];
 
 }
