@@ -1,5 +1,12 @@
-self: super: {
-  vscode = super.vscode.override {
-    commandLineArgs = " --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --disable-gpu ";
-  };
+self: super: 
+let
+  myfhs = { additionalPkgs ? super: [] }: super.buildFHSEnv (super.vscode.fhs.args // 
+  {
+    profile = ''
+      export XDG_SESSION_TYPE=x11
+    '';
+  });
+in
+{
+  vscode.myfhs = myfhs {};
 }
