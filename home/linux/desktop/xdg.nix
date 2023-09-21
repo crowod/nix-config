@@ -38,7 +38,8 @@
           "x-scheme-handler/ftp" = browser;
           "x-scheme-handler/http" = browser;
           "x-scheme-handler/https" = browser;
-          "x-scheme-handler/unknown" = browser;
+          "x-scheme-handler/unknown"= browser;
+          "x-scheme-handler/lxmusic" = [ "lx-music-desktop.desktop" ];
 
           "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
 
