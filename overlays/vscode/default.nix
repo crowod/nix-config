@@ -8,5 +8,5 @@ let
   });
 in
 {
-  vscode.myfhs = myfhs {};
+  vscode.fhs = myfhs {};
 }

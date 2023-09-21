@@ -10,6 +10,6 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs-unstable.vscode.myfhs;
+    package = pkgs-unstable.vscode.fhs;
   };
 }
