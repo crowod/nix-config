@@ -113,6 +113,11 @@
     # start dockerd on boot.
     # This is required for containers which are created with the `--restart=always` flag to work.
     enableOnBoot = true;
+    daemon.settings = {
+      hosts = [
+        "unix:///var/run/docker.sock" "tcp://127.0.0.1:2375"
+      ];
+    };
   };
 
   environment.variables.EDITOR = "nvim";

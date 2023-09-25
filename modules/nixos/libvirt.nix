@@ -34,6 +34,9 @@
     #   qemu-system-xtensa qemu-xtensa qemu-system-xtensaeb qemu-xtensaeb
     #   ......
     qemu_full
+    
+    docker-compose  
+
   ];
 
   # boot.kernelModules = ["kvm-amd" "kvm-intel"];
