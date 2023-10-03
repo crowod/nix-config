@@ -1,4 +1,5 @@
 { pkgs
+, pkgs-unstable
 , nur-crowod
 , nur-xddxdd
 , ...
@@ -18,6 +19,8 @@
     osdlyrics
     yesplaymusic
     motrix
+
+    pkgs-unstable.wpsoffice-cn
 
     # nur-xddxdd.packages.${pkgs.system}.baidupcs-go
     # nur-xddxdd.packages.${pkgs.system}.wechat-uos
