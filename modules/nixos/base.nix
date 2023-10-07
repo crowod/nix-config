@@ -160,4 +160,5 @@
     su = "su -m";
   };
 
+  services.flatpak.enable = true;
 }
