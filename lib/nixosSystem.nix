@@ -16,6 +16,17 @@ let
       config.allowUnfree = true;
       overlays = (import ../overlays {module_name = module_name;});
     };
+    nur-no-pkgs = import specialArgs.nur {
+      nurpkgs = import nixpkgs { system = system; };
+      pkgs = import nixpkgs {
+          config = {
+            allowUnfree = true;
+          };
+          localSystem = {
+            system = system;
+          };
+      };
+    };
 
   };
 in
