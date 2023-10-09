@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+current_monitor=$(hyprctl activeworkspace -j | jq ".monitor")
+current_scale=$(hyprctl monitors -j | jq -r "map(select(.name==${current_monitor}))[].scale") 
+
+
+current_scale=1.5
+export QT_SCREEN_SCALE_FACTORS=$(echo "scale=4; 1/$current_scale" | bc)
+
+flameshot

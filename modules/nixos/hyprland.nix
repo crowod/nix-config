@@ -76,8 +76,10 @@
     mpc-cli # command-line mpd client
     ncmpcpp # a mpd client with a UI
     networkmanagerapplet
+
+    wireplumber
   ];
 
   security.pam.services.swaylock = { };
-  
+
 }

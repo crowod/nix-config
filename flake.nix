@@ -19,6 +19,7 @@
         nixos-modules = [
           ./hosts/nia
           ./modules/nixos/hyprland.nix
+          ./modules/nixos/extra.nix
         ];
         home-module = import ./home/linux/desktop.nix;
         module_name = "nia";
@@ -27,6 +28,7 @@
         nixos-modules = [
           ./hosts/mio
           ./modules/nixos/hyprland.nix
+          ./modules/nixos/extra.nix
         ];
         home-module = import ./home/linux/desktop.nix;
         module_name = "mio";
