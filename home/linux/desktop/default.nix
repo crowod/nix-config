@@ -20,6 +20,9 @@
     osdlyrics
     yesplaymusic
     motrix
+    qbittorrent
+    wine
+    pkgs-unstable.feishu
     
     nur-no-pkgs.repos.linyinfeng.wemeet
     pkgs-unstable.wpsoffice-cn
