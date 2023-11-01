@@ -14,6 +14,9 @@ let
     pkgs-unstable = import specialArgs.nixpkgs-unstable {
       system = specialArgs.x64_system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [
+        "zotero-6.0.27"
+      ];
       overlays = (import ../overlays {module_name = module_name;});
     };
     nur-no-pkgs = import specialArgs.nur {
