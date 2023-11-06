@@ -19,6 +19,8 @@
     devbox
     ruby
 
+    go
+
     (python311.withPackages (ps:
       with ps; [
         ipython

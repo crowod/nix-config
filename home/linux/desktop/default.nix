@@ -23,6 +23,7 @@
     qbittorrent
     wine
     pkgs-unstable.feishu
+    pkgs-unstable.komikku
     
     nur-no-pkgs.repos.linyinfeng.wemeet
     pkgs-unstable.wpsoffice-cn
