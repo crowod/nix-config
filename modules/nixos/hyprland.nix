@@ -61,7 +61,7 @@
     wl-clipboard # copying and pasting
     hyprpicker # color picker
 
-    swww # the wallpaper
+    pkgs-unstable.swww # the wallpaper
 
     wf-recorder # creen recording
     grim # taking screenshots
