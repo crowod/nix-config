@@ -6,6 +6,7 @@
 
   home.packages = with pkgs; [
     pkgs-unstable.jetbrains.idea-ultimate
+    pkgs-unstable.jetbrains.goland
   ];
 
   programs.vscode = {

@@ -24,6 +24,7 @@
     distrobox
 
     nushell
+    rasdaemon
   ];
 
   programs = {

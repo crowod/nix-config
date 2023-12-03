@@ -31,8 +31,8 @@
     "cifs" # mount windows share
   ];
 
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModprobeConfig = "options kvm_amd nested=1";
+  # boot.kernelModules = [ "kvm-amd" ];
+  # boot.extraModprobeConfig = "options kvm_amd nested=1";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
