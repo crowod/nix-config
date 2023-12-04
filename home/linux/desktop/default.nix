@@ -26,7 +26,6 @@
     pkgs-unstable.komikku
     
     nur-no-pkgs.repos.linyinfeng.wemeet
-    pkgs-unstable.wpsoffice-cn
 
     nur-xddxdd.wechat-uos
     nur-xddxdd.baidupcs-go
