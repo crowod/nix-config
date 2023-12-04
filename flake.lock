@@ -786,11 +786,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701681306,
-        "narHash": "sha256-2eW7/nnqFE+xDH7nlJlvkcYxAUXtghpq0Zt2XASn2DQ=",
+        "lastModified": 1701683894,
+        "narHash": "sha256-dHRJ4J4YpBo86CCmHt9PbgJSgbsBsUUqo8C2nbc0vSc=",
         "owner": "crowod",
         "repo": "nur-packages",
-        "rev": "5684ac30f8299783ffbda9e97364979b737b74bd",
+        "rev": "a87f663b56fc89cc93e61b5e9e1ba286f8ed58a9",
         "type": "github"
       },
       "original": {
