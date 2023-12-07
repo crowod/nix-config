@@ -19,6 +19,10 @@
       enable = true;
       shellInit = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
+        
+        if test -f ~/.fishenv 
+          source $HOME/.fishenv
+        end
       '';
     };
     zsh = {
@@ -96,6 +100,8 @@
       "karabiner-elements"
       "kitty"
       "hammerspoon"
+      "popclip"
+      "picgo"
     ];
   };
 }
