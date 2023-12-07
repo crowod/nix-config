@@ -102,6 +102,7 @@
       "hammerspoon"
       "popclip"
       "picgo"
+      "datagrip"
     ];
   };
 }
