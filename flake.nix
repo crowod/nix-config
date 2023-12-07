@@ -6,14 +6,17 @@
     , nixpkgs
     , nixpkgs-unstable
     , home-manager
+    , nix-darwin
     , ...
     }:
     let
       username = "crowod";
       email = "xiangcz929@gmail.com";
       x64_system = "x86_64-linux";
+      aarch64_darwin = "aarch64-darwin";
 
       nixosSystem = import ./lib/nixosSystem.nix;
+      macosSystem = import ./lib/macosSystem.nix;
 
       nia_modules = {
         nixos-modules = [
@@ -32,6 +35,13 @@
         ];
         home-module = import ./home/linux/desktop.nix;
         module_name = "mio";
+      };
+      
+      hikari_modules = {
+        darwin-modules = [
+          ./hosts/hikari
+        ];
+        home-module = import ./home/darwin;
       };
       
       x64_specialArgs =
@@ -56,6 +66,15 @@
             };
           };
         };
+      aarch64_darwin_specialArgs =
+        {
+          inherit username email;
+          system = aarch64_darwin;
+          pkgs-unstable = import nixpkgs-unstable {
+            system = aarch64_darwin;
+            config.allowUnfree = true;
+          };
+        } // inputs;
     in
     {
       nixosConfigurations =
@@ -70,6 +89,15 @@
         {
           nia = nixosSystem (nia_modules // base_args);
           mio = nixosSystem (mio_modules // base_args);
+        };
+        darwinConfigurations = let
+          base_args = {
+            system = aarch64_darwin;
+            inherit nix-darwin home-manager nixpkgs;
+            specialArgs = aarch64_darwin_specialArgs;
+          };
+        in {
+          hikari = macosSystem (hikari_modules // base_args);
         };
     };
 
@@ -99,6 +127,13 @@
     nur-crowod = {
       url = "github:crowod/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # for macos
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-23.11-darwin";
+    nix-darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
     # home-manager, used for managing user configuration
@@ -166,6 +201,12 @@
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
+    };
+    hammerspoon-config = {
+      url = "https://github.com/crowod/hammerspoon.git";
+      flake = false;
+      type = "git";
+      submodules = true;
     };
   };
 
