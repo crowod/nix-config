@@ -20,3 +20,10 @@ keymap('n', '<Leader>c', '<C-w>c', opts);
 -- Visual mode --
 -----------------
 keymap('v', '<Leader>y', '"+y', opts)
+
+-----------------
+-- VS Code --
+-----------------
+if vim.g.vscode then
+    keymap('n', 'gcc', "<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>", {})
+end
