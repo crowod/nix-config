@@ -4,6 +4,8 @@
   home.file.".ideavimrc".source = ../base/desktop/conf/idea/.ideavimrc;
   home.file.".hammerspoon".source = "${hammerspoon-config}";
 
+  home.file.".config/karabiner/assets/complex_modifications/map_capslock.json".source = ./karabiner/map_capslock.json;
+
   home.packages = with pkgs; [
     pkgs-unstable.nil
   ];

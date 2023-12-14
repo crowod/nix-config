@@ -14,6 +14,10 @@
 
     keyMode = "vi";
 
+    extraConfig = ''
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+    '';
+
     plugins = with pkgs.tmuxPlugins; [
       {
         # https://github.com/catppuccin/tmux
