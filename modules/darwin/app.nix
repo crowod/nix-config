@@ -103,6 +103,7 @@
       "popclip"
       "picgo"
       "datagrip"
+      "chromium"
     ];
   };
 }
