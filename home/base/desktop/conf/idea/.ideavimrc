@@ -12,6 +12,7 @@ set clipboard=unnamed
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-matchit'
 Plug 'chrisbra/matchit'
+packadd matchit
 set matchit
 set easymotion
 set surround
@@ -63,6 +64,7 @@ nnoremap <Leader>gf :action GotoFile<CR>
 nnoremap <Leader>gi :action GotoImplementation<CR>
 nnoremap <Leader>gs :action GotoSymbol<CR>
 nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap <Leader>sm :action GotoSuperMethod<CR>
 
 nnoremap <Leader>fp :action ShowFilePath<CR>
 

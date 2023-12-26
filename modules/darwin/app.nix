@@ -88,7 +88,6 @@
       "snipaste"
       "google-chrome"
       "visual-studio-code"
-      "alfred"
       "postman"
       "goland"
       "feishu"
@@ -104,6 +103,7 @@
       "picgo"
       "datagrip"
       "chromium"
+      "raycast"
     ];
   };
 }
