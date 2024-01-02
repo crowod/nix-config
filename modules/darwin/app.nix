@@ -79,6 +79,7 @@
       "tree"
       "glow"
       "go"
+      "docker"
     ];
 
     # brew install --cask
