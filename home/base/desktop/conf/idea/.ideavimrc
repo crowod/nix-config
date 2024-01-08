@@ -99,6 +99,7 @@ map <Leader>st :action Stop<CR>
 map <Leader>so :action StepOver<CR>
 map <Leader>si :action StepInto<CR>
 map <Leader>fs :action FileStructurePopup<CR>
+map <Leader>gh :action ShowHoverInfo<CR>
 
 map <Leader>ee :action EvaluateExpression<CR>
 map <Leader><Leader>re :action Resume<CR>
