@@ -79,7 +79,6 @@
       "tree"
       "glow"
       "go"
-      "docker"
     ];
 
     # brew install --cask
@@ -105,6 +104,7 @@
       "datagrip"
       "chromium"
       "raycast"
+      "docker"
     ];
   };
 }
