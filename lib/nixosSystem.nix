@@ -16,6 +16,7 @@ let
       config.allowUnfree = true;
       config.permittedInsecurePackages = [
         "zotero-6.0.27"
+        "electron-25.9.0"
       ];
       overlays = (import ../overlays {module_name = module_name;});
     };
