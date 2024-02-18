@@ -15,6 +15,7 @@
     keyMode = "vi";
 
     extraConfig = ''
+      set -g renumber-windows on
       bind-key -T copy-mode-vi v send-keys -X begin-selection
     '';
 
