@@ -13,6 +13,7 @@
       ../../modules/nixos/base.nix
       ../../modules/nixos/libvirt.nix
       ../../modules/nixos/keyd
+      ../../modules/nixos/samba.nix
     ];
 
   # Bootloader.

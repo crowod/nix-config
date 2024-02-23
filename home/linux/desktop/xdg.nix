@@ -42,6 +42,9 @@
 
           "x-scheme-handler/tg" = [ "telegramdesktop.desktop" ];
 
+
+          "audio/*" = ["mpv.desktop"];
+          "video/*" = ["mpv.dekstop"];
           "image/*" = [ "imv.desktop" ];
           "image/gif" = [ "imv.desktop" ];
           "image/jpeg" = [ "imv.desktop" ];
