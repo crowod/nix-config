@@ -79,6 +79,10 @@
       "tree"
       "glow"
       "go"
+      "parallel"
+      "bat"
+      "btop"
+      "htop"
     ];
 
     # brew install --cask
