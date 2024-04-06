@@ -25,7 +25,8 @@
 
     nushell
     rasdaemon
-  ];
+    ueberzugpp
+];
 
   programs = {
     eza = {
