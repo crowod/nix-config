@@ -59,7 +59,6 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
-      "jstkdng/programs"
     ];
 
     # brew install
@@ -84,7 +83,6 @@
       "bat"
       "btop"
       "htop"
-      "ueberzugpp"
     ];
 
     # brew install --cask
