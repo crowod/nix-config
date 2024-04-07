@@ -66,7 +66,6 @@
       "wget"
       "curl" 
       "aria2" 
-      "httpie" 
       "jq"
       "fd"
       "btop"
@@ -83,6 +82,7 @@
       "bat"
       "btop"
       "htop"
+      "jstkdng/programs/ueberzugpp"
     ];
 
     # brew install --cask
