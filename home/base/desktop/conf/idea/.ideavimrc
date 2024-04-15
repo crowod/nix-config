@@ -7,6 +7,7 @@ set smartcase
 set showmode
 set scrolloff=3
 set history=100000
+set clipboard+=unnamed
 
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-matchit'
