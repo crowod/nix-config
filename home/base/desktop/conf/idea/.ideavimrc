@@ -83,6 +83,11 @@ nnoremap <Leader>re :action RenameElement<CR>
 nnoremap <Leader>rf :action RenameFile<CR>
 nnoremap <Leader>su :action ShowUsages<CR>
 nnoremap <Leader>tc :action CloseActiveTab<CR>
+nnoremap <Leader>me :action MaximizeEditorInSplit<CR>
+nnoremap <Leader>sv :action SplitVertically<CR>
+nnoremap <Leader>sh :action SplitHorizontally<CR>
+nnoremap <Leader>ne :action GotoNextError<CR>
+nnoremap <Leader>pe :action GotoPreviousError<CR>
 
 nnoremap <Leader>rc :action RunToCursor<CR>
 
