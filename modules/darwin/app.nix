@@ -84,6 +84,8 @@
       "btop"
       "htop"
       "jstkdng/programs/ueberzugpp"
+      "npm"
+      "fx"
     ];
 
     # brew install --cask
