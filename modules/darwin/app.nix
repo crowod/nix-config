@@ -86,6 +86,7 @@
       "jstkdng/programs/ueberzugpp"
       "npm"
       "fx"
+      "prettier"
     ];
 
     # brew install --cask
