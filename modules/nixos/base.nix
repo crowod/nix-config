@@ -89,6 +89,7 @@
     patchelf
     nix-output-monitor
     bc
+    miraclecast
 
 
     # create a fhs environment by command `fhs`, so we can run non-nixos packages in nixos!

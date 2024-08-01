@@ -27,7 +27,6 @@
     
     nur-no-pkgs.repos.linyinfeng.wemeet
 
-    nur-xddxdd.wechat-uos
     nur-xddxdd.baidupcs-go
 
     nur-crowod.packages.${pkgs.system}.pot-translation

@@ -49,6 +49,10 @@
           inherit username email x64_system;
         } // inputs // {
           nur-xddxdd = import inputs.nur-xddxdd {
+            modules = [
+              # Add packages from this repo
+              inputs.nur-xddxdd.nixosModules.setupOverlay
+            ];
             pkgs = import nixpkgs {
               localSystem = {
                 system = x64_system;
@@ -121,7 +125,6 @@
     # The Nix User Repository (NUR) is community-driven meta repository for Nix packages. 
     nur-xddxdd = {
       url = "github:xddxdd/nur-packages";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur-crowod = {
@@ -151,7 +154,7 @@
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     # a wayland launcher
     anyrun = {
-      url = "github:Kirottu/anyrun";
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -217,7 +220,7 @@
     substituters = [
       "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://cache.nixos.org"
-      "https://xddxdd.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
       "https://crowod.cachix.org"
       "https://anyrun.cachix.org"
     ];
@@ -230,7 +233,7 @@
     extra-trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "xddxdd.cachix.org-1:ay1HJyNDYmlSwj5NXQG065C8LfoqqKaTNCyzeixGjf8="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "crowod.cachix.org-1:JXeKWrnjh01P7veGCKotIcdU3cjmZocly3ZQPJTQH98="
       "anyrun.cachix.org-1:pqBobmOjI7nKlsUMV25u9QHa9btJK65/C8vnO3p346s="
     ];
