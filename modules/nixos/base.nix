@@ -1,5 +1,6 @@
 { lib
 , pkgs
+, pkgs-unstable
 , ...
 }: {
 
@@ -79,7 +80,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
+    pkgs-unstable.neovim
     wget
     curl
     git

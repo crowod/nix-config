@@ -1,6 +1,6 @@
-{ ... }:
+{ pkgs-unstable, ... }:
 {
-
+  
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -8,6 +8,7 @@
     vimAlias = true;
     withPython3 = true;
     withNodeJs = true;
+    package = pkgs-unstable.neovim-unwrapped;
   };
 
   home.file.".config/nvim/init.lua".source = ./init.lua;

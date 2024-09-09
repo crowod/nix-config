@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
 
   environment.systemPackages = with pkgs; [
-    neovim
+    pkgs-unstable.neovim
     git
     gnutar
     gnugrep
@@ -87,6 +87,7 @@
       "npm"
       "fx"
       "prettier"
+      "tokei"
     ];
 
     # brew install --cask

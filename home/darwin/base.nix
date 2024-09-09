@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     pkgs-unstable.nil
+    pkgs-unstable.devbox
   ];
 
   programs = {
