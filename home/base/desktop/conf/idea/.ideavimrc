@@ -88,6 +88,7 @@ nnoremap <Leader>sv :action SplitVertically<CR>
 nnoremap <Leader>sh :action SplitHorizontally<CR>
 nnoremap <Leader>ne :action GotoNextError<CR>
 nnoremap <Leader>pe :action GotoPreviousError<CR>
+nnoremap <Leader>rl :action SynchronizeCurrentFile<CR>
 
 nnoremap <Leader>rc :action RunToCursor<CR>
 
