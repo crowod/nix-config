@@ -43,4 +43,6 @@
   nix.settings = {
     auto-optimise-store = false;
   };
+  
+  system.stateVersion = 5;
 }

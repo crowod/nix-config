@@ -1,9 +1,11 @@
 {
   nixpkgs,
+  
   nix-darwin,
   home-manager,
   system,
   specialArgs,
+  nixpkgs-darwin,
   darwin-modules,
   home-module,
 }: let
@@ -14,14 +16,9 @@ in
     modules =
       darwin-modules
       ++ [
-        {
-          # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
-          nix.registry.nixpkgs.flake = nixpkgs;
-
-          # make `nix repl '<nixpkgs>'` use the same nixpkgs as the one used by this flake.
-          environment.etc."nix/inputs/nixpkgs".source = "${nixpkgs}";
-          nix.nixPath = ["/etc/nix/inputs"];
-        }
+        ({lib, ...}: {
+          nixpkgs.pkgs = import nixpkgs-darwin {inherit system;};
+        })
 
         home-manager.darwinModules.home-manager
         {
