@@ -14,6 +14,7 @@
       ../../modules/nixos/libvirt.nix
       ../../modules/nixos/keyd
       ../../modules/nixos/samba.nix
+      ../../modules/nixos/plex.nix
     ];
 
   # Bootloader.
@@ -89,12 +90,12 @@
   # services.xserver.libinput.enable = true;
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = username;
+  services.displayManager.autoLogin.enable = false;
+  services.displayManager.autoLogin.user = username;
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+#  systemd.services."getty@tty1".enable = false;
+#  systemd.services."autovt@tty1".enable = false;
 
 
   # This value determines the NixOS release from which the default
@@ -103,6 +104,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }

@@ -42,7 +42,7 @@ services.samba = {
       "force user" = "crowod";
     };
     bangumi = {
-      path = "/home/crowod/Downloads/Bangumi";
+      path = "/home/crowod/Downloads/ani-rss";
       public = "yes";
       browseable = "yes";
       writable = "yes";
@@ -53,20 +53,7 @@ services.samba = {
       "create mask" = "0755";
       "directory mask" = "0755";
       "force user" = "crowod";
-    };
-    video = {
-      path = "/home/crowod/Downloads/video";
-      public = "yes";
-      browseable = "yes";
-      writable = "yes";
-      available = "yes";
-      "valid users" = "crowod";
-      "read only" = "no";
-      "guest ok" = "yes";
-      "create mask" = "0755";
-      "directory mask" = "0755";
-      "force user" = "crowod";
-    };
+  };
   };
 };
 

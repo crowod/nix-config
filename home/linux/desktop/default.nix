@@ -1,7 +1,6 @@
 { pkgs
 , pkgs-unstable
 , nur-crowod
-, nur-xddxdd
 , nur-no-pkgs
 , ...
 }: {
@@ -20,14 +19,12 @@
     osdlyrics
     yesplaymusic
     motrix
-    qbittorrent
     wine
+    pkgs-unstable.qbittorrent
     pkgs-unstable.feishu
     pkgs-unstable.komikku
     
     nur-no-pkgs.repos.linyinfeng.wemeet
-
-    nur-xddxdd.baidupcs-go
 
     nur-crowod.packages.${pkgs.system}.pot-translation
 

@@ -86,7 +86,7 @@
     git
     clash-verge
     nixpkgs-fmt
-    keyd
+    pkgs-unstable.keyd
     patchelf
     nix-output-monitor
     bc
@@ -127,10 +127,10 @@
 
   # fonts related
   fonts = {
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
     fontDir.enable = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       material-design-icons
       font-awesome
 

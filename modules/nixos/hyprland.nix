@@ -3,7 +3,8 @@
   programs = {
     hyprland = {
       enable = true;
-      package = pkgs-unstable.hyprland;
+      package = pkgs.hyprland;
+
 
       xwayland = {
         enable = true;
@@ -31,24 +32,21 @@
   services = {
     gvfs.enable = true; # Mount, trash, and other functionalities
     tumbler.enable = true; # Thumbnail support for images
+    displayManager = {
+        defaultSession = "hyprland";
+	sddm = {
+	  enable = true;
+	  wayland = {
+	    enable = true;
+	  };
+	};
+	enable = true;
+    };
 
     xserver = {
       enable = true;
 
-      desktopManager = {
-        xterm.enable = false;
-      };
-
-      displayManager = {
-        defaultSession = "hyprland";
-        lightdm.enable = false;
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
-      };
-      layout = "cn";
-      xkbVariant = "";
+      xkb.layout = "cn";
     };
   };
 
