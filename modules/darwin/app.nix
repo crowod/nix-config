@@ -115,5 +115,8 @@
       "raycast"
       "docker"
     ];
+    masApps = {
+      Longshot = 6450262949;
+    };
   };
 }
