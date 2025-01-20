@@ -88,6 +88,14 @@
       "fx"
       "prettier"
       "tokei"
+      "yazi"
+      "ffmpeg"
+      "sevenzip"
+      "jq"
+      "poppler"
+      "fzf"
+      "zoxide"
+      "imagemagick"
     ];
 
     # brew install --cask
@@ -114,6 +122,7 @@
       "chromium"
       "raycast"
       "docker"
+      "font-symbols-only-nerd-font"
     ];
     masApps = {
       Longshot = 6450262949;
