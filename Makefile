@@ -6,8 +6,7 @@ mio:
 
 hikari:
 	nix build .#darwinConfigurations.hikari.system --extra-experimental-features 'nix-command flakes'
-	./result/sw/bin/darwin-rebuild switch --flake .#hikari
-	
+	sudo ./result/sw/bin/darwin-rebuild switch --flake .#hikari --show-trace
 up:
 	nix flake update
 	

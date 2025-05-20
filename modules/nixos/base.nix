@@ -143,12 +143,8 @@
       source-serif
       source-han-sans
       source-han-serif
-
-      (nerdfonts.override {
-        fonts = [
-          "JetBrainsMono"
-        ];
-      })
+      
+      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig.defaultFonts = {

@@ -96,6 +96,7 @@
       "fzf"
       "zoxide"
       "imagemagick"
+      "jnv"
     ];
 
     # brew install --cask
