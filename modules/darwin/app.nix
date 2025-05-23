@@ -97,6 +97,7 @@
       "zoxide"
       "imagemagick"
       "jnv"
+      "rsync"
     ];
 
     # brew install --cask

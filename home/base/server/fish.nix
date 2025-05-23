@@ -12,6 +12,7 @@
       fish_vi_key_bindings
       set fish_greeting # Disable greeting
       bind \t accept-autosuggestion
+      fzf --fish | source
     '';
 
     plugins = [
