@@ -86,7 +86,6 @@
     wget
     curl
     git
-    clash-verge-rev
     nixpkgs-fmt
     pkgs-unstable.keyd
     patchelf

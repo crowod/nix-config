@@ -19,6 +19,10 @@
         thunar-volman
       ];
     };
+    clash-verge = {
+      enable = true;
+      autoStart = true;
+    };
   };
 
   xdg.portal = {

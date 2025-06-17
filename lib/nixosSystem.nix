@@ -47,6 +47,7 @@ nixpkgs.lib.nixosSystem {
           useUserPackages = true;
           extraSpecialArgs = args;
           users."${username}" = home-module;
+          backupFileExtension = "home-manager.backup";
         };
         nixpkgs.overlays = [
           args.nil.overlays.default
