@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   home.packages = with pkgs; [
 
@@ -26,6 +26,8 @@
     nushell
     rasdaemon
     ueberzugpp
+    pkgs-unstable.yazi
+    
 ];
 
   programs = {

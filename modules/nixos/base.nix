@@ -12,6 +12,8 @@
     fish
   ];
 
+
+  nix.package = pkgs.nixVersions.latest;
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
@@ -84,7 +86,7 @@
     wget
     curl
     git
-    clash-verge
+    clash-verge-rev
     nixpkgs-fmt
     pkgs-unstable.keyd
     patchelf
@@ -98,7 +100,7 @@
       let
         base = pkgs.appimageTools.defaultFhsEnvArgs;
       in
-      pkgs.buildFHSUserEnv (base
+      pkgs.buildFHSEnv (base
         // {
         name = "fhs";
         targetPkgs = pkgs: (base.targetPkgs pkgs) ++ [ 
@@ -135,7 +137,7 @@
       font-awesome
 
       noto-fonts
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       noto-fonts-extra
 

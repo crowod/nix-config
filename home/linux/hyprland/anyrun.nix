@@ -4,10 +4,6 @@
 , ...
 }:
 {
-  imports = [
-    anyrun.homeManagerModules.default
-  ];
-  
   home.file.".config/anyrun/lib/libapplications.so".source = ./conf/anyrun/libapplications.so;
 
   programs.anyrun = {

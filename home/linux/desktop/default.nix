@@ -17,7 +17,6 @@
     imv
     cliphist
     osdlyrics
-    yesplaymusic
     motrix
     wine
     pkgs-unstable.qbittorrent

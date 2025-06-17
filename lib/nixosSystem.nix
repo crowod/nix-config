@@ -49,7 +49,6 @@ nixpkgs.lib.nixosSystem {
           users."${username}" = home-module;
         };
         nixpkgs.overlays = [
-          args.nur.overlay
           args.nil.overlays.default
         ] ++ (import ../overlays {module_name = module_name;});
       }

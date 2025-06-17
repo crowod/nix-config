@@ -14,21 +14,21 @@ services.samba-wsdd = {
 services.samba = {
   enable = true;
   securityType = "user";
-  extraConfig = ''
-    workgroup = WORKGROUP
-    server string = smbnix
-    netbios name = smbnix
-    security = user 
-    #use sendfile = yes
-    #max protocol = smb2
-    # note: localhost is the ipv6 localhost ::1
-    hosts allow = 192.168.2. 127.0.0.1 localhost
-    # hosts deny = 0.0.0.0/0
-    guest account = nobody
-    map to guest = Bad user
-  '';
-  shares = {
-    movies = {
+  settings = {
+    global = {
+      "workgroup" = "WORKGROUP";
+      "server string" = "smbnix";
+      "netbios name" = "smbnix";
+      "security" = "user";
+      #"use sendfile" = "yes";
+      #"max protocol" = "smb2";
+      # note: localhost is the ipv6 localhost ::1
+      "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+      "hosts deny" = "0.0.0.0/0";
+      "guest account" = "nobody";
+      "map to guest" = "bad user";
+    };
+    "movies" = {
       path = "/home/crowod/Downloads/movies";
       public = "yes";
       browseable = "yes";
@@ -41,7 +41,7 @@ services.samba = {
       "directory mask" = "0755";
       "force user" = "crowod";
     };
-    bangumi = {
+    "bangumi" = {
       path = "/home/crowod/Downloads/ani-rss";
       public = "yes";
       browseable = "yes";
@@ -53,7 +53,7 @@ services.samba = {
       "create mask" = "0755";
       "directory mask" = "0755";
       "force user" = "crowod";
-  };
+    };
   };
 };
 
