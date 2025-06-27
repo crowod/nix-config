@@ -22,8 +22,9 @@
     pkgs-unstable.qbittorrent
     pkgs-unstable.feishu
     pkgs-unstable.komikku
+    pkgs-unstable.wechat
     
-    nur-no-pkgs.repos.linyinfeng.wemeet
+    pkgs.wemeet
 
     nur-crowod.packages.${pkgs.system}.pot-translation
 

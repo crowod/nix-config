@@ -16,7 +16,6 @@
     lua
     lua-language-server
     
-    devbox
     ruby
 
     go
