@@ -111,4 +111,7 @@ map <Leader>gh :action ShowHoverInfo<CR>
 map <Leader>ee :action EvaluateExpression<CR>
 map <Leader><Leader>re :action Resume<CR>
 
+map g; :action JumpToLastChange<Enter>
+map g, :action JumpToNextChange<Enter>
+
 let g:EasyMotion_startofline=0
