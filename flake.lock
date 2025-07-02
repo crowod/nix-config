@@ -399,11 +399,11 @@
     "hammerspoon-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1704184281,
-        "narHash": "sha256-zmjKs8Bp7RbZXZEuuJ0xkqIL6UCJbCTHtj1nB7enQMs=",
+        "lastModified": 1751458274,
+        "narHash": "sha256-XfJMSWWPgwhteC8NwzOdlylZ2wgSMFL3Pmh4d+aN23o=",
         "ref": "refs/heads/master",
-        "rev": "e548cbdb7f2de099733d57d1b5666aed88be6fc9",
-        "revCount": 32,
+        "rev": "4c96af4197239f85aa58995737da15bb946b6bf0",
+        "revCount": 33,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/crowod/hammerspoon.git"
