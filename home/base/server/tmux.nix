@@ -16,6 +16,7 @@
 
     extraConfig = ''
       set -g renumber-windows on
+      set-option -g automatic-rename off
       bind-key -T copy-mode-vi v send-keys -X begin-selection
     '';
 
@@ -31,6 +32,8 @@
         
           set -g @catppuccin_window_default_fill "none"
         
+          set -g @catppuccin_window_text "#W"
+          set -g @catppuccin_window_current_text "#W"
           set -g @catppuccin_window_current_fill "all"
         
           set -g @catppuccin_status_modules "application session user host date_time"

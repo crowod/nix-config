@@ -34,5 +34,11 @@
     shellAliases = {
       rg = "rg -L";
     };
+    
+    functions = {
+      fish_title = {
+        body = "";
+      };
+    };
   };
 }
