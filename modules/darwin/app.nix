@@ -98,6 +98,7 @@
       "imagemagick"
       "jnv"
       "rsync"
+      "git-delta"
     ];
 
     # brew install --cask
