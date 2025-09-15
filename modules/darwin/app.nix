@@ -47,8 +47,7 @@
 
     onActivation = {
       autoUpdate = false;
-      # 'zap': uninstalls all formulae(and related files) not listed in the generated Brewfile
-      cleanup = "zap";
+      cleanup = "none";
       extraFlags = [
         "--force"
       ];
