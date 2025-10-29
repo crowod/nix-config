@@ -20,6 +20,9 @@ keymap('n', '<Leader>c', '<C-w>c', opts);
 -- Visual mode --
 -----------------
 keymap('v', '<Leader>y', '"+y', opts)
+keymap('v', '<Leader>j.', [[:!jq '.'<CR>]], opts)
+keymap('v', '<Leader>jf', [[:!jq '. | fromjson'<CR>]], opts)
+keymap('v', '<Leader>jt', [[:!jq '. | tojson'<CR>]], opts)
 
 -----------------
 -- VS Code --

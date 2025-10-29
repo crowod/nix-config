@@ -60,6 +60,7 @@
         extraConfig = ''
           set -g @resurrect-capture-pane-contents 'on' 
           set -g @resurrect-processes ':all:'
+          set -g @resurrect-strategy-nvim 'session'
         '';
       }
       {
