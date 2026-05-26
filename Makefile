@@ -7,22 +7,28 @@ mio:
 hikari:
 	nix build .#darwinConfigurations.hikari.system --extra-experimental-features 'nix-command flakes'
 	sudo ./result/sw/bin/darwin-rebuild switch --flake .#hikari --show-trace
+
+# Windows-only: sync Zed config (settings.json / keymap.json) to %APPDATA%\Zed\.
+# Requires PowerShell (pwsh). Will fail on macOS/Linux unless pwsh is installed.
+windows-zed:
+	pwsh ./scripts/windows/install-zed.ps1
+
 up:
 	nix flake update
-	
+
 upp:
-	nix flake lock --update-input $(i)
-	
+	nix flake update $(i)
+
 history:
 	nix profile history --profile /nix/var/nix/profiles/system
 
 gc:
 	# remove all generations older than 7 days
-	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
-
+	sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
 	# garbage collect all unused nix store entries
 	sudo nix store gc --debug
-	
-.PHONY: clean  
-clean:  
+
+clean:
 	rm -rf result
+
+.PHONY: nia mio hikari windows-zed up upp history gc clean

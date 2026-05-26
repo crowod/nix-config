@@ -7,6 +7,7 @@
     ../base/server/git.nix
     ../base/server/starship.nix
     ../base/desktop/kitty.nix
+    ../base/desktop/zed.nix
     ./base.nix
   ];
   
