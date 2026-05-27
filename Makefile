@@ -9,9 +9,9 @@ hikari:
 	sudo ./result/sw/bin/darwin-rebuild switch --flake .#hikari --show-trace
 
 # Windows-only: sync Zed config (settings.json / keymap.json) to %APPDATA%\Zed\.
-# Requires PowerShell (pwsh). Will fail on macOS/Linux unless pwsh is installed.
+# Requires PowerShell (powershell.exe).
 windows-zed:
-	pwsh ./scripts/windows/install-zed.ps1
+	powershell -ExecutionPolicy Bypass -File ./scripts/windows/install-zed.ps1
 
 up:
 	nix flake update
