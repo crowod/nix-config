@@ -1,32 +1,18 @@
--- define common options
-local opts = {
-    noremap = true, -- non-recursive
-    silent = true,  -- do not show message
-}
-local keymap = vim.api.nvim_set_keymap
-
-vim.g.mapleader = ","
-
------------------
--- Normal mode --
------------------
-keymap('n', '<C-s>', ':w<CR>', opts);
-keymap('n', '<Leader>q', ':q!<CR>', opts);
-keymap('n', '<Leader>qa', ':qa!<CR>', opts);
-keymap('n', '<Leader>wq', ':wq!<CR>', opts);
-keymap('n', '<Leader>c', '<C-w>c', opts);
-
------------------
--- Visual mode --
------------------
-keymap('v', '<Leader>y', '"+y', opts)
-keymap('v', '<Leader>j.', [[:!jq '.'<CR>]], opts)
-keymap('v', '<Leader>jf', [[:!jq '. | fromjson'<CR>]], opts)
-keymap('v', '<Leader>jt', [[:!jq '. | tojson'<CR>]], opts)
-
------------------
--- VS Code --
------------------
-if vim.g.vscode then
-    keymap('n', '<Leader>gi', "<Cmd>call VSCodeNotify('editor.action.goToImplementation')<CR>", {})
-end
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set({"n", "v"}, "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+vim.keymap.set({"n", "v"}, "<leader>d", '"_d')
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>q", ":q!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>qa", ":qa!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>wq", ":wq!<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>c", "<C-w>c", { noremap = true, silent = true })
+vim.keymap.set("v", "<Leader>j.", [[:!jq '.'<CR>]], { noremap = true, silent = true })
+vim.keymap.set("v", "<Leader>jf", [[:!jq '. | fromjson'<CR>]], { noremap = true, silent = true })
+vim.keymap.set("v", "<Leader>jt", [[:!jq '. | tojson'<CR>]], { noremap = true, silent = true })
